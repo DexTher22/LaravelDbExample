@@ -68,6 +68,16 @@ class DrinkController extends Controller{
 
     }
 
+    public function deleteDrink(int $id) {
+        
+        $success = DB::table('drinks')->where('id', $id)->delete();
+
+        return response()->json([
+            'success' => $success,
+            'message' => 'sikeres törlés'
+        ]);
+
+    }
 
 
 }
